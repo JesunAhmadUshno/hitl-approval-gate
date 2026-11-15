@@ -238,6 +238,10 @@ export default function App() {
       <footer className="site-foot container">
         <p>Claims ceiling: the simulated numbers describe a script, not a person. The human study exists only when the named approver runs the live arm.</p>
         <p><a href={REPO}>hitl-approval-gate on GitHub</a></p>
+        <p className="support-links">
+          <a className="support-pill" href="https://github.com/sponsors/JesunAhmadUshno">Sponsor this work</a>
+          <a className="support-pill" href="https://calendly.com/jesunahmadushno/30min">Work with me</a>
+        </p>
       </footer>
     </div>
   );
