@@ -1,0 +1,47 @@
+{
+  "arm": "SIMULATED",
+  "warning": "All numbers in this file come from a scripted simulated approver. No human decided anything in this run.",
+  "seed": 20261115,
+  "request_count": 240,
+  "approver_spec": {
+    "approve_probability": {
+      "data_write": 0.9,
+      "external_send": 0.8,
+      "financial": 0.7,
+      "system_config": 0.85
+    },
+    "default_approve_probability": 0.85,
+    "delay_distribution": "lognormal",
+    "delay_median_seconds": {
+      "data_write": 30.0,
+      "external_send": 60.0,
+      "financial": 120.0,
+      "system_config": 45.0
+    },
+    "default_delay_median_seconds": 45.0,
+    "delay_sigma": 0.6,
+    "submit_interval_seconds": 5.0
+  },
+  "routing_accuracy": 1.0,
+  "routing_checked": 240,
+  "stats": {
+    "total": 240,
+    "by_status": {
+      "auto_approved": 85,
+      "approved": 107,
+      "denied": 31,
+      "rejected": 17
+    },
+    "auto_approve_rate": 0.3541666666666667,
+    "escalation_rate": 0.5166666666666667,
+    "deny_rate": 0.12916666666666668,
+    "human_decided": 124,
+    "human_approval_rate": 0.8629032258064516,
+    "human_latency_seconds": {
+      "count": 124,
+      "p50": 52.0,
+      "p90": 133.0,
+      "p99": 239.0
+    }
+  }
+}
