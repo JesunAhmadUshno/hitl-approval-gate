@@ -240,6 +240,8 @@ export default function App() {
         <p><a href={REPO}>hitl-approval-gate on GitHub</a></p>
         <p className="support-links">
           <a className="support-pill" href="https://github.com/sponsors/JesunAhmadUshno">Sponsor this work</a>
+          <a className="support-pill" href="https://github.com/sponsors/JesunAhmadUshno">Donate</a>
+          <a className="support-pill" href="https://buymeacoffee.com/jesun">Buy Me a Coffee</a>
           <a className="support-pill" href="https://calendly.com/jesunahmadushno/30min">Work with me</a>
         </p>
       </footer>
