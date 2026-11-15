@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hitl-approval-gate"
+version = "0.1.0"
+description = "A human-in-the-loop approval gate for agent actions: policy routing, human decisions, append-only decision log."
+readme = "README.md"
+license = { text = "Apache-2.0" }
+requires-python = ">=3.11"
+
+[project.scripts]
+hitl-gate = "hitl_gate.cli:main"
+
+[project.optional-dependencies]
+test = ["pytest>=8"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

@@ -1,0 +1,33 @@
+# Default policy for the approval gate.
+#
+# Every action request carries a risk class. The policy maps each class to
+# one of three routes:
+#
+#   auto   the request is approved at once, no human involved
+#   human  the request waits for a human approve or reject decision
+#   deny   the request is refused at once, no human can approve it here
+#
+# A class that is not listed here falls back to default_route.
+# Edit this file to change the gate's behaviour. Nothing else needs to change.
+
+default_route = "human"
+
+[classes.read_only]
+route = "auto"
+description = "Reads, listings, and local queries that change nothing."
+
+[classes.data_write]
+route = "human"
+description = "Writes to notes, trackers, and local databases."
+
+[classes.external_send]
+route = "human"
+description = "Messages, emails, posts, and invites that leave the machine."
+
+[classes.financial]
+route = "human"
+description = "Charges, refunds, and transfers."
+
+[classes.destructive]
+route = "deny"
+description = "Deletes, drops, revocations, and wipes. Refused by policy."
