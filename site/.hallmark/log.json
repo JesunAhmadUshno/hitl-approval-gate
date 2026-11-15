@@ -1,0 +1,31 @@
+[
+ {
+  "shape": "Feature Ledger",
+  "theme": "cobalt",
+  "genre": "modern-minimal",
+  "hero": "ledger head with flow diagram",
+  "nav": "edge-aligned wordmark and links",
+  "footer": "claims ceiling and one link",
+  "imagery": "none",
+  "photos": [],
+  "signature": "gate flow diagram from policy.toml routes",
+  "sections": [
+   "hero with diagram",
+   "policy routing",
+   "simulated results",
+   "explorer",
+   "live arm",
+   "log"
+  ],
+  "waived": [],
+  "prompt": "hitl approval gate dashboard",
+  "axes": [
+   "light",
+   "grotesk-sans",
+   "cool"
+  ],
+  "fingerprint": "ledger-cobalt-diagram",
+  "date": "2026-11-15",
+  "mode": "build"
+ }
+]

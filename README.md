@@ -76,6 +76,17 @@ See APPROVER-GUIDE.md.
 hitl-gate live
 ```
 
+## Dashboard
+
+A GitHub Pages dashboard for this repo lives at
+https://jesunahmadushno.github.io/hitl-approval-gate/
+It shows the gate flow diagram, the policy routing table read from
+policy.toml, the SIMULATED arm results with an explorer for the 240
+requests by risk class, and the live arm marked NOT RUN. The page is
+generated at build time from RESULTS.md, results/simulated_arm.json,
+results/simulated-log.jsonl, and policy.toml, and its build fails if
+the figures drift from RESULTS.md. Source: site/.
+
 ## Claims ceiling
 
 This is a portfolio tool built to a research standard: pre-registered

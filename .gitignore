@@ -5,3 +5,7 @@ __pycache__/
 dist/
 data/
 results/*.log
+
+node_modules/
+site/src/data.json
+site/.hallmark/shots/
