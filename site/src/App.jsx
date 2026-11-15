@@ -117,6 +117,30 @@ function Explorer() {
   );
 }
 
+function ResultsChart() {
+  const max = Math.max(...data.byRiskClass.map((r) => r.total));
+  const rowH = 34;
+  const height = data.byRiskClass.length * rowH + 8;
+  return (
+    <figure className="diagram-wrap">
+      <svg viewBox={`0 0 720 ${height}`} role="img" aria-label="Bar chart of simulated requests per risk class, read from the committed results data" className="res-chart">
+        {data.byRiskClass.map((r, i) => {
+          const y = i * rowH + 4;
+          const w = Math.max(2, (r.total / max) * 380);
+          return (
+            <g key={r.risk_class}>
+              <text x="0" y={y + 17} className="res-label">{r.risk_class}</text>
+              <rect x="170" y={y + 2} width={w} height="20" rx="6" className={r.route === "deny" ? "res-bar-alt" : "res-bar"} />
+              <text x={170 + w + 8} y={y + 17} className="res-value">{r.total} requests, route {r.route}</text>
+            </g>
+          );
+        })}
+      </svg>
+      <figcaption>Simulated requests per risk class, from the same committed results data as the table below.</figcaption>
+    </figure>
+  );
+}
+
 function Metric({ value, label, detail }) {
   return (
     <div className="metric">
@@ -142,6 +166,7 @@ export default function App() {
 
       <main>
         <section className="hero container">
+          <p className="eyebrow">Human in the loop approval gate</p>
           <h1>Agents ask before they act.</h1>
           <p className="lead">A policy file routes each action: auto approval, human decision, or refusal.</p>
           <p className="actions">
@@ -152,6 +177,7 @@ export default function App() {
         </section>
 
         <section className="section container" aria-labelledby="policy-h">
+          <p className="eyebrow">Policy</p>
           <h2 id="policy-h">Policy routing</h2>
           <p className="section-lede">These routes are read from policy.toml at build time.</p>
           <div className="table-scroll">
@@ -168,6 +194,7 @@ export default function App() {
         </section>
 
         <section className="section container" id="simulated" aria-labelledby="sim-h">
+          <p className="eyebrow">Simulated arm</p>
           <h2 id="sim-h">Simulated arm results</h2>
           <p className="sim-banner">SIMULATED: a scripted approver made every decision. These numbers describe the script, not a person.</p>
           <div className="metrics">
@@ -180,9 +207,11 @@ export default function App() {
             <Metric value={`${s.latency.p90} s`} label="SIMULATED latency p90" detail="distribution output" />
             <Metric value={`${s.latency.p99} s`} label="SIMULATED latency p99" detail="distribution output" />
           </div>
+          <ResultsChart />
         </section>
 
         <section className="section container" aria-labelledby="explore-h">
+          <p className="eyebrow">Explorer</p>
           <h2 id="explore-h">Explore the simulated requests</h2>
           <Explorer />
           <h3 className="subhead">The simulated approver, as specified</h3>
@@ -200,6 +229,7 @@ export default function App() {
         </section>
 
         <section className="section container" aria-labelledby="live-h">
+          <p className="eyebrow">Live arm</p>
           <h2 id="live-h">Live arm: NOT RUN</h2>
           <p className="section-lede">Ready, and not run. No human results exist, and none are claimed here.</p>
           <div className="table-scroll">
@@ -216,6 +246,7 @@ export default function App() {
         </section>
 
         <section className="section container" aria-labelledby="log-h">
+          <p className="eyebrow">Decision log</p>
           <h2 id="log-h">The log keeps the receipts</h2>
           <p className="section-lede">Each record carries the hash of the record before it.</p>
           <div className="table-scroll">
