@@ -25,6 +25,11 @@ class Policy:
 
 
 def _check_route(route, where):
+    """Validate one route value read from the policy file.
+
+    Called for every route at load time, so a typo in policy.toml fails
+    fast with a named location instead of silently misrouting requests.
+    """
     if route not in ROUTES:
         raise ValueError(f"invalid route for {where}: {route!r} (expected one of {ROUTES})")
     return route
